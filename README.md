@@ -8,12 +8,10 @@ Download the latest pre-built binary from [GitHub Releases](https://github.com/a
 
 ```bash
 # Linux x64
-curl -fSL https://github.com/agentvms/pdc-integrations/releases/latest/download/pdc-linux-x64 -o pdc
-chmod +x pdc
+curl -fSL https://github.com/agentvms/pdc-integrations/releases/latest/download/pdc-linux-x64 -o pdc && chmod +x pdc
 
 # Linux arm64
-curl -fSL https://github.com/agentvms/pdc-integrations/releases/latest/download/pdc-linux-arm64 -o pdc
-chmod +x pdc
+curl -fSL https://github.com/agentvms/pdc-integrations/releases/latest/download/pdc-linux-arm64 -o pdc && chmod +x pdc
 ```
 
 The binary is self-contained — no runtime dependencies required.
