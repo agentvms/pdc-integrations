@@ -18,15 +18,14 @@ The binary is self-contained — no runtime dependencies required.
 
 ## Setup
 
-```bash
-# Configure credentials (interactive)
-./pdc config init
+Add your Pipedream credentials to `~/.profile` so they're available to the `pdc` binary:
 
-# Or set environment variables / .env file
-PIPEDREAM_CLIENT_ID=...
-PIPEDREAM_CLIENT_SECRET=...
-PIPEDREAM_PROJECT_ID=...
-PIPEDREAM_PROJECT_ENVIRONMENT=
+```bash
+echo 'export PIPEDREAM_CLIENT_ID=...' >> ~/.profile
+echo 'export PIPEDREAM_CLIENT_SECRET=...' >> ~/.profile
+echo 'export PIPEDREAM_PROJECT_ID=...' >> ~/.profile
+echo 'export PIPEDREAM_PROJECT_ENVIRONMENT=...' >> ~/.profile
+source ~/.profile
 ```
 
 ## Quick Start
