@@ -45,12 +45,10 @@ export function resolveConfig(opts: GlobalOpts): PdcConfig {
     process.env.PIPEDREAM_CLIENT_SECRET || profile.clientSecret;
   const projectId =
     process.env.PIPEDREAM_PROJECT_ID || profile.projectId;
-  const environment =
-    process.env.PIPEDREAM_PROJECT_ENVIRONMENT || profile.environment;
   const apiHost =
     process.env.PIPEDREAM_API_HOST || profile.apiHost;
 
-  return { clientId, clientSecret, projectId, environment, apiHost };
+  return { clientId, clientSecret, projectId, apiHost };
 }
 
 export function requireConfig(opts: GlobalOpts): Required<Pick<PdcConfig, "clientId" | "clientSecret" | "projectId">> & PdcConfig {

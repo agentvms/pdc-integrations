@@ -26,7 +26,6 @@ The binary is self-contained — no runtime dependencies required.
 PIPEDREAM_CLIENT_ID=...
 PIPEDREAM_CLIENT_SECRET=...
 PIPEDREAM_PROJECT_ID=...
-PIPEDREAM_PROJECT_ENVIRONMENT=development  # optional, defaults to development
 ```
 
 ## Quick Start
@@ -301,7 +300,6 @@ Config is resolved in this order (highest priority first):
 
 | Variable | Description |
 |----------|-------------|
-| `PIPEDREAM_PROJECT_ENVIRONMENT` | `development` or `production` (default: development) |
 | `PIPEDREAM_API_HOST` | Custom API host override |
 
 ## Development

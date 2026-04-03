@@ -15,7 +15,7 @@ export function getClient(opts: GlobalOpts): BackendClient {
       clientSecret: config.clientSecret,
     },
     projectId: config.projectId,
-    environment: (config.environment as "development" | "production") || "development",
+    environment: "development",
     ...(config.apiHost ? { apiHost: config.apiHost } : {}),
   });
 

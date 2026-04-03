@@ -8,7 +8,6 @@ export type PdcConfig = {
   clientId?: string;
   clientSecret?: string;
   projectId?: string;
-  environment?: string;
   apiHost?: string;
 };
 

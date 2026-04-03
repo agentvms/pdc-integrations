@@ -35,18 +35,12 @@ export function configCommand(): Command {
         const projectId = await input({
           message: "Project ID:",
         });
-        const environment = await input({
-          message: "Environment (development/production):",
-          default: "development",
-        });
-
         const file = getConfigFileRaw();
         if (!file.profiles) file.profiles = {};
         file.profiles[profileName] = {
           clientId,
           clientSecret,
           projectId,
-          environment,
         };
         if (!file.defaultProfile) file.defaultProfile = profileName;
         writeConfigFile(file);
@@ -64,7 +58,7 @@ export function configCommand(): Command {
   config
     .command("set")
     .description("Set a configuration value")
-    .argument("<key>", "Config key (clientId, clientSecret, projectId, environment)")
+    .argument("<key>", "Config key (clientId, clientSecret, projectId)")
     .argument("<value>", "Config value")
     .action(async (key, value) => {
       try {
