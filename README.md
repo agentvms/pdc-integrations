@@ -2,14 +2,27 @@
 
 A personal integration CLI. Connect your own accounts (Gmail, Slack, GitHub, etc.) and interact with them directly from the terminal.
 
+## Install
+
+Download the latest pre-built binary from [GitHub Releases](https://github.com/agentvms/pdc-integrations/releases/latest):
+
+```bash
+# Linux x64
+curl -fSL https://github.com/agentvms/pdc-integrations/releases/latest/download/pdc-linux-x64 -o pdc
+chmod +x pdc
+
+# Linux arm64
+curl -fSL https://github.com/agentvms/pdc-integrations/releases/latest/download/pdc-linux-arm64 -o pdc
+chmod +x pdc
+```
+
+The binary is self-contained — no runtime dependencies required.
+
 ## Setup
 
 ```bash
-# Install dependencies
-bun install
-
 # Configure credentials (interactive)
-bun run src/cli.ts -- config init
+./pdc config init
 
 # Or set environment variables / .env file
 PIPEDREAM_CLIENT_ID=...
@@ -293,9 +306,13 @@ Config is resolved in this order (highest priority first):
 | `PIPEDREAM_PROJECT_ENVIRONMENT` | `development` or `production` (default: development) |
 | `PIPEDREAM_API_HOST` | Custom API host override |
 
-## Building
+## Development
+
+Requires [Bun](https://bun.sh) for building from source.
 
 ```bash
+bun install
+
 # Run directly
 bun run src/cli.ts -- <command>
 
@@ -306,6 +323,17 @@ bun run build
 # Type check
 bun x --bun tsc --noEmit
 ```
+
+## Releasing
+
+Push a version tag to trigger the GitHub Actions release workflow:
+
+```bash
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+This builds `pdc-linux-x64` and `pdc-linux-arm64` binaries and uploads them to a GitHub Release.
 
 ## Architecture
 
