@@ -110,7 +110,24 @@ pdc actions get gmail-send-email      # action details + props
 
 Run an action using a connected account.
 
+> **Important:** Always discover prop names with `pdc actions get <key>` before running.
+> Prop names are set by Pipedream and may not match what you'd guess (e.g. `gmail-find-email`
+> uses `q`, not `query`).
+
 ```bash
+# Step 1: Find the action
+pdc actions --app gmail
+
+# Step 2: Discover exact prop names
+pdc actions get gmail-find-email
+#   q [string] (optional) — Search query using Gmail search operators
+#   withTextPayload [boolean] (optional) — Convert payload to plaintext
+#   maxResults [integer] (optional) — Maximum number of messages (default: 20)
+
+# Step 3: Run with the correct props
+pdc run gmail-find-email --account personal-gmail \
+  --props '{"q":"in:inbox","maxResults":5,"withTextPayload":true}'
+
 pdc run gmail-send-email --account personal-gmail \
   --props '{"to":"test@example.com","subject":"Test","body":"Hello"}'
 
