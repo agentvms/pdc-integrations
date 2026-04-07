@@ -5,7 +5,19 @@ import { handleError } from "../errors.js";
 import type { GlobalOpts } from "../types.js";
 
 export function actionsCommand(): Command {
-  const actions = new Command("actions").description("Browse available actions");
+  const actions = new Command("actions")
+    .description("Browse available actions")
+    .addHelpText(
+      "after",
+      `
+Tip: Use "pdc actions get <action-key>" to see exact prop names, types, and
+descriptions before running an action with "pdc run".
+
+Examples:
+  pdc actions --app gmail               # list Gmail actions
+  pdc actions --query "find email"      # search across all apps
+  pdc actions get gmail-find-email      # show props: q, maxResults, etc.`,
+    );
 
   actions
     .command("list", { isDefault: true })
